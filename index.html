@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>select search</title>
+    <script src="jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<div>
+    <input type="text" id="input">
+    <select id="select">
+        <option value="">option1</option>
+        <option value="">option2</option>
+        <option value="">option3</option>
+        <option value="">option4</option>
+        <option value="">option5</option>
+        <option value="">option6</option>
+    </select>
+</div>
+<hr>
+<div>
+    <input type="text" id="input2">
+    <select id="select2">
+        <option value="">option1</option>
+        <option value="">option2</option>
+        <option value="">option3</option>
+        <option value="">option4</option>
+        <option value="">option5</option>
+        <option value="">option6</option>
+    </select>
+</div>
+</body>
+<script  src="select_search.js"></script>
+<script>
+
+$('#input').keyup(function () {
+    select_search($('#input').val(),$('#select option'));
+});
+$('#input2').keyup(function () {
+    select_search($('#input2').val(),$('#select2 option'),'my custom option message if no result');
+});
+</script>
+</html>
