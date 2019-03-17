@@ -24,7 +24,6 @@ function select_search(search,option,messageNoResult='No Result') {
         }
     });
     if (firstItemSelected == 0){
-        console.log(4);
         option.parent().append(
             "<option id='optionSearchNoResult' selected>"+messageNoResult+"</option>"
         );
