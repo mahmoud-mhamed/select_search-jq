@@ -5,26 +5,27 @@ function select_search(search,option,messageNoResult='No Result') {
     }
 
     /*hide option don't contain search in input*/
-    var firstItemSelected=null;
+    var firstItemSelected=0;
     $(option).each(function () {
         //check if option is #optionSearchNoResult
         if ($(this).attr('id') == 'optionSearchNoResult') {
             $(this).remove();
         }else {
-            var result=$(this).html().search(search);
+            var result=$(this).text().search(search);
             if (result == -1 ){
                 $(this).removeAttr('selected').hide();
             }else {
                 $(this).show();
-                if (firstItemSelected==null){
-                    firstItemSelected = $(this);
+                if (firstItemSelected == 0){
+                    firstItemSelected = 1;
                     $(this).attr('selected','true');
                 }
             }
         }
     });
-    if (firstItemSelected==null){
-        option.eq(0).before(
+    if (firstItemSelected == 0){
+        console.log(4);
+        option.parent().append(
             "<option id='optionSearchNoResult' selected>"+messageNoResult+"</option>"
         );
     }
